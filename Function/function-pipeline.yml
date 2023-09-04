@@ -1,0 +1,46 @@
+trigger:
+  paths:
+    include:
+      - Function/*
+    exclude:
+      - FrontEnd/*
+      - IaC/*
+
+variables:
+  # Agent VM image name
+  vmImageName: 'windows-2019'
+
+  # project dir
+  projectDirectory: 'Function/CuauhFunctionsApp'
+
+stages:
+- stage: Build
+  displayName: Build stage
+
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+
+    steps:
+    - task: DotNetCoreCLI@2
+      displayName: Build
+      inputs:
+        command: 'build'
+        projects: |
+          $(projectDirectory)/*.csproj
+        arguments: --output $(projectDirectory)/publish_output --configuration Release
+
+    - task: ArchiveFiles@2
+      displayName: 'Archive files'
+      inputs:
+        rootFolderOrFile: '$(projectDirectory)/publish_output'
+        includeRootFolder: false
+        archiveType: zip
+        archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+        replaceExistingArchive: true
+
+    - publish: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+      artifact: drop
+

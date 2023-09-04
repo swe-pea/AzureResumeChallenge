@@ -1,0 +1,24 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  paths:
+    include:
+      - FrontEnd/site/*
+    exclude:
+      - Function/*
+      - IaC/*
+
+pool:
+  vmImage: windows-latest
+
+steps:
+- task: AzurePowerShell@5
+  inputs:
+    azureSubscription: '$(AZ_SUBSCRIPTION)'
+    ScriptType: 'FilePath'
+    ScriptPath: 'FrontEnd/Upload-Script.ps1'
+    ScriptArguments: '-resourceGroupName $(RG) -storageAccountName $(STORAGE_ACC) -sourceFolder FrontEnd/site'
+    azurePowerShellVersion: 'LatestVersion'

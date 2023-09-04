@@ -1,0 +1,30 @@
+trigger: none
+
+pr: none
+
+pool:
+  vmImage: windows-latest
+
+steps:
+- task: TerraformInstaller@1
+  inputs:
+    terraformVersion: 'latest'
+- task: TerraformTaskV4@4
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    workingDirectory: 'IaC/terraform'
+    backendServiceArm: '$(AZ_SUBSCRIPTION)'
+    backendAzureRmResourceGroupName: '$(TF_RG)'
+    backendAzureRmStorageAccountName: '$(TF_STORE_ACC)'
+    backendAzureRmContainerName: '$(TF_CONTAINER)'
+    backendAzureRmKey: 'tfstate/terraform.tfstate'
+  
+- task: TerraformTaskV4@4
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    workingDirectory: 'IaC/terraform'
+    environmentServiceNameAzureRM: '$(AZ_SUBSCRIPTION)'
+
+
