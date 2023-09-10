@@ -1,6 +1,7 @@
 # Azure Hosted Static Blog Site (Cloud Challenge) 
 
 Check it out here: [cuauh.codes](https://www.cuauh.codes/)
+
 Blog Post: https://dev.to/swe-pea/cloud-resume-challenge-azure-edition-227o
 
 ## Overview 
