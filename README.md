@@ -1,6 +1,7 @@
 # Azure Hosted Static Blog Site (Cloud Challenge) 
 
 Check it out here: [cuauh.codes](https://www.cuauh.codes/)
+Blog Post: https://dev.to/swe-pea/cloud-resume-challenge-azure-edition-227o
 
 ## Overview 
 This is a simple blog built with Azure Storage static website hosting, and Azure serverless architecture inspired by the cloud resume challenge. I'm building this site to showcase cloud computing experience while also taking the opportunity to become more proficient in C#, web development, and various other skills listed in the [cloud resume challenge - Azure](https://cloudresumechallenge.dev/docs/the-challenge/azure/#9-api). In addition, I will add blog posts where I'll write development topics that interest me and work on improving my technical writing skills!
