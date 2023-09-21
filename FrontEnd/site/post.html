@@ -59,10 +59,57 @@
                     <div class="tm-post-full">                    
                         <div class="mb-4">
                             <h2 class="pt-2 tm-color-primary tm-post-title">Experience with Cloud Resume Challenge (Azure Edition)</h2>
-                            <p class="tm-mb-40">August 19, 2023 posted by Ivan C</p>
                             <p>
-                                TODO 
+                                While looking through articles from the dev community, I recently stumbled across a member's blog post describing  their experience completing "The Cloud Resume Challenge." This caught my eye as the challenge looked fun and was similar to a simple personal blog project I had already wanted to start. After reviewing The Cloud Resume Challenge website, I knew this project was perfect for me!
                             </p>
+                            <h3 class="tm-color-primary tm-post-title">Considering Tools, Goals, & Objectives</h3>
+                            <p>
+                                Before building things, I took a moment to assess the project requirements and weigh different technology solutions while considering my objectives. Off the bat, I knew I would be using Azure as the cloud provider (hence the title) since I've been heavily Azure-focused with most recent projects, and my only other cloud experience has been with AWS (Eliminating GCP - as learning a new provider doesn't align with my objectives for the project).
+                            </p>
+                            <p>
+                                Consideration for version control & CI/CD fell between Gitlab, GitHub, and Azure DevOps. With web development taking priority for "area of desired learning/growth" with this project, I went with what I'm currently most comfortable & experienced working with: Azure DevOps. However, with the ease of authentication/compatibility, I used GitHub for the repo, with the "Azure Pipelines" GitHub App integration. I recommend  this solution when working with Azure. However, I'll probably be using more GitHub actions moving forward.
+                            </p>
+                            <p>
+                                Finally, rather than using Python to create the "Visitor Counter API" as recommended, I enjoy coding C# a lot and therefore opted to use that, although it's arguably overkill for this project, and I didn't do any fancy OOP stuff. 
+                            </p>
+                            <h3 class="tm-color-primary tm-post-title">
+                                Setting Up The Site
+                            </h3>
+                            <p>
+                                Some of the most time-consuming pieces of this project for me were in the beginning with simply building & setting up the static website and getting the visitor counter to work correctly. It has been a long time since I've touched HTML, CSS, and Javascript. My goal was to keep everything as simple as possible & keep things secure, which looked slightly different as I altered the challenge to host my blog site rather than a single-page resume.
+                            </p>
+                            <p>
+                                I used GoDaddy to purchase my custom domain name & another site for the SSL certificate, where, in retrospect, I could've used Azure's internal services to buy a custom domain and configure it with a managed SSL certificate to minimize complexity. It wasn't a huge issue; I made a CNAME record mapping from the DNS provider I used to my Azure CND endpoint. Once that propagated, my Azure Front Door & CDN profile was ready to rock & roll!
+                            </p>
+                            <h3 class="tm-color-primary tm-post-title">
+                                Site Visitor Counter (DynamoDB & Azure Functions)
+                            </h3>
+                            <p>
+                                After writing the javascript on my site for how I wanted the "Visitor Count" feature to work, I had a good idea of implementing the API using Azure Functions to communicate securely with a simple DB table entity. Visual Studio IDE helps create an Azure Function app, a speedy and  seamless process, so you can focus on writing code rather than overspending time on configuration/authentication. I highly recommend it if working with Azure!
+                            </p>
+                            <p>
+                                Using VS to create C# Azure Function AppUsing the Cosmos DB .NET SDK, and after a period of trial & error, I had my visitorcounter.js method using the HTTP trigger to increment and display my site counter. What was most challenging for me was getting my visitorcounter.js logic to work with my site the way I wanted. Luckily, with the abundance of online resources developers have today (forums, AI tools, etc.), overcoming obstacles for integrating the front end with the back wasn't nearly as challenging as it would've been "back in the day." I have tons of gratitude for the easily accessible tech resources available in today's day & age!
+                            </p>
+                            <h3 class="tm-color-primary tm-post-title">
+                                Infrastructure As Code & Automation (CI/CD)
+                            </h3>
+                            <p>
+                                Front End Deployment Stg in Azure DevOpsIt could defeat the purpose of IaC for a project like this; however, I've always automated processes/tasks only after understanding the task "inside and out,"  and so I provisioned & configured my resources using Azure CLI and the UI portal first to get a POC(Proof of concept) working. I always learn a lot from building out and testing a little POC; in this case, it also helped me consider (in terms of automation) how robust, flexible, and well-designed a solution I wanted to create.
+                            </p>
+                            <h3 class="tm-color-primary tm-post-title">
+                                TDLR ~ Review 
+                            </h3>
+                            <p>
+                                My primary goals for this project were to gain experience with web development, write this blog, satisfy the challenge requirements, and get an MVP launched. Sticking more or less to these goals left tons of room for improvement, especially with the backend of the project, specifically the visitor counter feature (DB & Az Function) and the automation pipelines. 
+                            </p>
+                            <p>
+                                That said, however, I thoroughly enjoyed working on this challenge (even if altered a little bit) and highly recommend it to just about anyone interested in technology, as it touches many different areas! I have already recommended it to several people. It's been a perfect and incredibly fun "breaking the ice" project to get kicked off developing experience & comfort writing "dev"/technical blog posts and sharing projects online despite their flaws! 
+                            </p>
+                            <p>
+                                I am excited to continue writing blog posts on tech-related stuff geared toward helping others and providing value. While also sharing more public projects on Github and connecting with other like-minded techies! I am very grateful for the developer communities; thanks.
+                            </p>
+
+                            <p class="tm-mb-40">August 19, 2023 posted by Ivan C</p>
                             <span class="d-block text-right tm-color-primary">Cloud . Azure . Web</span>
                         </div>
                         
