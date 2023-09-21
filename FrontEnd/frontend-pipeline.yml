@@ -20,5 +20,5 @@ steps:
     azureSubscription: '$(AZ_SUBSCRIPTION)'
     ScriptType: 'FilePath'
     ScriptPath: 'FrontEnd/Upload-Script.ps1'
-    ScriptArguments: '-resourceGroupName $(RG) -storageAccountName $(STORAGE_ACC) -sourceFolder FrontEnd/site'
+    ScriptArguments: '-resourceGroupName $(RG) -storageAccountName $(STORAGE_ACC) -sourceFolder $(Build.SourcesDirectory)\FrontEnd\site\'
     azurePowerShellVersion: 'LatestVersion'

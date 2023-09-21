@@ -1,6 +1,9 @@
 # Azure Hosted Static Blog Site (Cloud Challenge) 
 
+[![Build Status](https://dev.azure.com/xtrmstunts/PlayGround/_apis/build/status%2Fswe-pea.AzureResumeChallenge?branchName=main)](https://dev.azure.com/xtrmstunts/PlayGround/_build/latest?definitionId=23&branchName=main)
+
 Check it out here: [cuauh.codes](https://www.cuauh.codes/)
+
 Blog Post: https://dev.to/swe-pea/cloud-resume-challenge-azure-edition-227o
 
 ## Overview 
